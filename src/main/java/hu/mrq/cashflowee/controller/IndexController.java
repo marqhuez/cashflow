@@ -39,12 +39,10 @@ public class IndexController {
         for (Bevetel bevetel : bevetelList) {
             osszesBevetel += bevetel.getOsszeg();
         }
-        System.out.println(osszesBevetel);
 
         for (Kiadas kiadas : kiadasList) {
             osszesKiadas += kiadas.getOsszeg();
         }
-        System.out.println(osszesKiadas);
 
         return osszesBevetel - osszesKiadas;
 

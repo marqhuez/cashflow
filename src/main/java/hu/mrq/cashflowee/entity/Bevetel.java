@@ -7,7 +7,7 @@ import java.util.Date;
 public class Bevetel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer osszeg;
     private String megjegyzes;

@@ -17,4 +17,7 @@ public class KiadasService {
         return kr.findAll();
     }
 
+    public void saveKiadas(Kiadas kiadas) {
+        kr.save(kiadas);
+    }
 }

@@ -7,13 +7,15 @@ import java.util.Date;
 public class Kiadas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(insertable = false)
     private Long id;
     private Integer osszeg;
     private String megjegyzes;
     private Integer kategoriaId;
     private Integer szamlaId;
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(insertable = false)
     private Date idopont;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

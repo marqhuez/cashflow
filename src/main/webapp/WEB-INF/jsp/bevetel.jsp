@@ -26,7 +26,7 @@
                     <td><fmt:formatNumber value = "${bevetel.osszeg}" type = "currency" currencySymbol="" maxFractionDigits="0"/> Ft</td>
                     <td>${bevetel.megjegyzes}</td>
                     <td>${bevetel.kategoria.nev}</td>
-                    <td><fmt:formatDate pattern = "yyyy-MM-dd hh:mm:ss" value = "${bevetel.idopont}" /></td>
+                    <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${bevetel.idopont}" /></td>
                     <td>${bevetel.szamla.nev}</td>
                 </tr>
             </c:forEach>
