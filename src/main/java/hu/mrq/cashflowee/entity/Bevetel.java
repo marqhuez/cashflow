@@ -14,6 +14,7 @@ public class Bevetel {
     private Integer kategoriaId;
     private Integer szamlaId;
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(insertable = false)
     private Date idopont;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

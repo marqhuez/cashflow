@@ -7,20 +7,20 @@
     <div class="d-flex justify-content-center">
         <form action="" method="post">
             <label for="osszeg">Összeg</label>
-            <input class="form-control mb-3" type="number" name="osszeg" id="osszeg">
+            <input class="form-control mb-3" type="number" name="osszeg" id="osszeg" required>
 
             <label for="megjegyzes">Megjegyzés</label>
-            <textarea class="form-control mb-3" name="megjegyzes" id="megjegyzes"></textarea>
+            <textarea class="form-control mb-3" name="megjegyzes" id="megjegyzes" required></textarea>
 
-            <label for="kategoria">Kategória</label>
-            <select class="form-control mb-3" name="kategoria" id="kategoria">
+            <label for="kategoriaId">Kategória</label>
+            <select class="form-control mb-3" name="kategoriaId" id="kategoriaId" required>
                 <c:forEach var="kategoria" items="${kategoriak}">
                     <option value="${kategoria.id}">${kategoria.nev}</option>
                 </c:forEach>
             </select>
 
-            <label for="szamla">Számla</label>
-            <select class="form-control mb-3" name="szamla" id="szamla">
+            <label for="szamlaId">Számla</label>
+            <select class="form-control mb-3" name="szamlaId" id="szamlaId" required>
                 <c:forEach var="szamla" items="${szamlak}">
                     <option value="${szamla.id}">${szamla.nev}</option>
                 </c:forEach>

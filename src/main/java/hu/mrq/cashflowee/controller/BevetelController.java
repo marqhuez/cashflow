@@ -20,7 +20,6 @@ public class BevetelController {
 
         List<Bevetel> all = bc.getAll();
 
-        System.out.println(bc.getAll());
         model.addAttribute("bevetelek", bc.getAll());
 
         return "bevetel";
