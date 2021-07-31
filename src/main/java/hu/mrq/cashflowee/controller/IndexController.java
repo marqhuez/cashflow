@@ -28,21 +28,16 @@ public class IndexController {
         return "index";
     }
 
-    public Integer egyenlegSzamol() {
+    public long egyenlegSzamol() {
 
-        List<Bevetel> bevetelList = bs.getAll();
-        List<Kiadas> kiadasList = ks.getAll();
+        List<Integer> bevetelOsszegList = bs.getOsszeg();
+        List<Integer> kiadasOsszegList = ks.getOsszeg();
 
-        int osszesBevetel = 0;
-        int osszesKiadas = 0;
+        long osszesBevetel = 0;
+        long osszesKiadas = 0;
 
-        for (Bevetel bevetel : bevetelList) {
-            osszesBevetel += bevetel.getOsszeg();
-        }
-
-        for (Kiadas kiadas : kiadasList) {
-            osszesKiadas += kiadas.getOsszeg();
-        }
+        osszesBevetel = bevetelOsszegList.stream().mapToLong(Integer::longValue).sum();
+        osszesKiadas = kiadasOsszegList.stream().mapToLong(Integer::longValue).sum();
 
         return osszesBevetel - osszesKiadas;
 

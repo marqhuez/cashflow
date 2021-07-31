@@ -11,9 +11,13 @@ public class Kategoria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nev;
+    private String tipus;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Bevetel> bevetel = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
+    private Set<Kiadas> kiadas = new HashSet<>();
 
     public Kategoria(Long id, String nev) {
         this.id = id;
@@ -36,5 +40,13 @@ public class Kategoria {
 
     public void setNev(String nev) {
         this.nev = nev;
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
     }
 }

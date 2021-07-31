@@ -11,9 +11,17 @@ import java.util.List;
 public class KategoriaService {
 
     @Autowired
-    KategoriaRepository kr;
+    KategoriaRepository kategoriaRepository;
 
     public List<Kategoria> getAll() {
-        return kr.findAll();
+        return kategoriaRepository.findAll();
+    }
+
+    public List<Kategoria> getBevetelKategoria() {
+        return kategoriaRepository.findByTipus("bevetel");
+    }
+
+    public List<Kategoria> getKiadasKategoria() {
+        return kategoriaRepository.findByTipus("kiadas");
     }
 }

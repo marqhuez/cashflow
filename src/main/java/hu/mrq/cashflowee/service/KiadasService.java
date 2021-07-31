@@ -17,6 +17,10 @@ public class KiadasService {
         return kr.findAll();
     }
 
+    public List<Integer> getOsszeg() {
+        return kr.findOsszeg();
+    }
+
     public void saveKiadas(Kiadas kiadas) {
         kr.save(kiadas);
     }

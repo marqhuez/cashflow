@@ -21,16 +21,16 @@ public class UjBevetelController {
     BevetelService bs;
 
     @Autowired
-    KategoriaService ks;
+    KategoriaService kategoriaService;
 
     @Autowired
-    SzamlaService szs;
+    SzamlaService szamlaService;
 
     @GetMapping("cashflow/ujbevetel")
     public String viewUjBevetel(Model model) {
 
-        List<Kategoria> allKategoriak = ks.getAll();
-        List<Szamla> allSzamlak = szs.getAll();
+        List<Kategoria> allKategoriak = kategoriaService.getBevetelKategoria();
+        List<Szamla> allSzamlak = szamlaService.getAll();
 
         model.addAttribute("kategoriak", allKategoriak);
         model.addAttribute("szamlak", allSzamlak);

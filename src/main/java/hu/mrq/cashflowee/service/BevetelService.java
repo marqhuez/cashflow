@@ -17,6 +17,10 @@ public class BevetelService {
         return br.findAll();
     }
 
+    public List<Integer> getOsszeg() {
+        return br.findOsszeg();
+    }
+
     public void saveBevetel(Bevetel bevetel) {
         br.save(bevetel);
     }
