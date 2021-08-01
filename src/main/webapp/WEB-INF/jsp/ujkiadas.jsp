@@ -12,8 +12,10 @@
             <label for="megjegyzes">Megjegyzés</label>
             <textarea class="form-control mb-3" name="megjegyzes" id="megjegyzes" required></textarea>
 
+            <input type="hidden" name="kategoriaId" id="kategoriaId" required>
+
             <label for="kategoriaId">Kategória</label>
-            <select class="form-control mb-3" name="kategoriaId" id="kategoriaId" required>
+            <select class="form-control mb-3" id="kategoriaSelector" required>
                 <c:forEach var="kategoria" items="${kategoriak}">
                     <option value="${kategoria.id}">${kategoria.nev}</option>
                 </c:forEach>

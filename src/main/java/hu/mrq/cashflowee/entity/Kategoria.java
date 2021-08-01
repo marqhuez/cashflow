@@ -19,6 +19,9 @@ public class Kategoria {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Kiadas> kiadas = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
+    private Set<Alkategoria> alkategoria = new HashSet<>();
+
     public Kategoria(Long id, String nev) {
         this.id = id;
         this.nev = nev;
