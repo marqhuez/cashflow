@@ -1,0 +1,13 @@
+.kategoria-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.uj-adat-form {
+    width: 60%;
+}
+
+.kategoria-btn-active, .kategoria-btn-active:focus, .kategoria-btn-active:hover {
+    background-color: peachpuff;
+}

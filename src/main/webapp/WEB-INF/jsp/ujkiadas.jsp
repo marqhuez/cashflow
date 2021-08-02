@@ -5,7 +5,7 @@
 <div class="row">
     <h3 class="col-12 text-center my-4">Új kiadás felvitele</h3>
     <div class="d-flex justify-content-center">
-        <form action="" method="post">
+        <form class="uj-adat-form" action="" method="post">
             <label for="osszeg">Összeg</label>
             <input class="form-control mb-3" type="number" name="osszeg" id="osszeg" required>
 
@@ -14,12 +14,12 @@
 
             <input type="hidden" name="kategoriaId" id="kategoriaId" required>
 
-            <label for="kategoriaId">Kategória</label>
-            <select class="form-control mb-3" id="kategoriaSelector" required>
-                <c:forEach var="kategoria" items="${kategoriak}">
-                    <option value="${kategoria.id}">${kategoria.nev}</option>
-                </c:forEach>
-            </select>
+            <label>Kategória</label>
+            <div class="kategoria-btn-container mx-auto">
+            <c:forEach var="kategoria" items="${kategoriak}">
+                <button onclick="setKategoriaValue(${kategoria.id}, this)" type="button" class="btn btn-sm btn-primary m-1 kategoria-btn">${kategoria.nev}</button>
+            </c:forEach>
+            </div>
 
             <label for="szamlaId">Számla</label>
             <select class="form-control mb-3" name="szamlaId" id="szamlaId" required>

@@ -1,8 +1,9 @@
-$("#kategoriaSelector").on("change", function() {
-    var kategoriaId = $(this).val();
-    //console.log($(this).val());
+function setKategoriaValue(kategoriaId, element) {
 
     $("#kategoriaId").val(kategoriaId);
+
+    $(".kategoria-btn").removeClass("kategoria-btn-active");
+    element.classList.add("kategoria-btn-active");
 
     $.ajax({
         type: "POST",
@@ -11,17 +12,11 @@ $("#kategoriaSelector").on("change", function() {
             "szuloKategoriaId" : kategoriaId
         },
         success: function(result) {
-            $("#alkategoriaSelectorLabel").remove();
-            $("#alkategoriaSelector").remove();
-
             if (result !== "") {
-                console.log(result);
-                $("#kategoriaSelector").after(result);
 
-                $("#alkategoriaSelector").on("change", function() {
-                    $("#kategoriaId").val($(this).val());
-                });
+                $(".kategoria-btn-container").html(result);
+
             }
         }
     });
-});
+}

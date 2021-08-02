@@ -20,18 +20,16 @@ public class AjaxController {
     @ResponseBody
     public String alkategoriaFeldolgoz(@RequestParam("szuloKategoriaId") String szuloKategoriaId) {
 
-        List<Kategoria> all = kategoriaService.getBySzuloId(Integer.parseInt(szuloKategoriaId));
         String result = "";
+        
+        if (!szuloKategoriaId.equals("")) {
+            List<Kategoria> all = kategoriaService.getBySzuloId(Integer.parseInt(szuloKategoriaId));
 
-        if (all.size() != 0) {
-            result = "<label id='alkategoriaSelectorLabel' for='alkategoriaSelector'>Alkategória</label><select class='form-control mb-3' id='alkategoriaSelector'>";
-
-            for (Kategoria kategoria : all) {
-                System.out.println(kategoria.getNev());
-                result += "<option value='" + kategoria.getId() + "'>" + kategoria.getNev() + "</option>";
+            if (all.size() != 0) {
+                for (Kategoria kategoria : all) {
+                    result += "<button onclick='setKategoriaValue(" + kategoria.getId() + ", this)' type='button' class='btn btn-sm btn-primary m-1 kategoria-btn'>" + kategoria.getNev() + "</button>";
+                }
             }
-
-            result += "</select>";
         }
 
         return result;
