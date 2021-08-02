@@ -29,7 +29,7 @@ public class UjKiadasController {
     @GetMapping("cashflow/ujkiadas")
     public String viewUjKiadas(Model model) {
 
-        List<Kategoria> allKategoriak = kategoriaService.getKiadasKategoria();
+        List<Kategoria> allKategoriak = kategoriaService.getAllKiadasSzulo();
         List<Szamla> allSzamlak = szamlaService.getAll();
 
         model.addAttribute("kategoriak", allKategoriak);

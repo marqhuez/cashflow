@@ -17,11 +17,19 @@ public class KategoriaService {
         return kategoriaRepository.findAll();
     }
 
+    public List<Kategoria> getAllKiadasSzulo() {
+        return kategoriaRepository.findBySzuloKategoriaIdAndTipus(0, "kiadas");
+    }
+
     public List<Kategoria> getBevetelKategoria() {
         return kategoriaRepository.findByTipus("bevetel");
     }
 
     public List<Kategoria> getKiadasKategoria() {
         return kategoriaRepository.findByTipus("kiadas");
+    }
+
+    public List<Kategoria> getBySzuloId(Integer szuloId) {
+        return kategoriaRepository.findBySzuloKategoriaId(szuloId);
     }
 }

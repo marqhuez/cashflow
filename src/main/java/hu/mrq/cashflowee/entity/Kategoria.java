@@ -12,15 +12,13 @@ public class Kategoria {
     private Long id;
     private String nev;
     private String tipus;
+    private Integer szuloKategoriaId;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Bevetel> bevetel = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Kiadas> kiadas = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
-    private Set<Alkategoria> alkategoria = new HashSet<>();
 
     public Kategoria(Long id, String nev) {
         this.id = id;
@@ -43,6 +41,14 @@ public class Kategoria {
 
     public void setNev(String nev) {
         this.nev = nev;
+    }
+
+    public Integer getSzuloKategoriaId() {
+        return szuloKategoriaId;
+    }
+
+    public void setSzuloKategoriaId(Integer szuloKategoriaId) {
+        this.szuloKategoriaId = szuloKategoriaId;
     }
 
     public String getTipus() {
