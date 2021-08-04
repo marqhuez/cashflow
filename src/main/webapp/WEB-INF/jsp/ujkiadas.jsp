@@ -4,6 +4,11 @@
 
 <div class="row">
     <h3 class="col-12 text-center my-4">Új kiadás felvitele</h3>
+
+    <div class="col-2">
+        <button class="btn btn-sm btn-warning" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> Vissza</button>
+    </div>
+
     <div class="d-flex justify-content-center">
         <form class="uj-adat-form" action="" method="post">
             <label for="osszeg">Összeg</label>
@@ -14,10 +19,27 @@
 
             <input type="hidden" name="kategoriaId" id="kategoriaId" required>
 
-            <label>Kategória</label>
+            <label id="kategoria-label">Kategória</label>
             <div class="kategoria-btn-container mx-auto">
             <c:forEach var="kategoria" items="${kategoriak}">
-                <button onclick="setKategoriaValue(${kategoria.id}, this)" type="button" class="btn btn-sm btn-primary m-1 kategoria-btn">${kategoria.nev}</button>
+                <button
+                        <c:if test="${kategoria.isSzulo}">
+                            data-szulo="true"
+                        </c:if>
+
+                        data-id="${kategoria.id}"
+
+                        <c:if test="${kategoria.isSzulo}">
+                            onclick="getAlkategoria(${kategoria.id}, this)"
+                        </c:if>
+
+                        <c:if test="${!kategoria.isSzulo}">
+                            onclick="setKategoriaValue(${kategoria.id})"
+                        </c:if>
+
+                        type="button"
+                        class="btn btn-sm btn-primary m-1 kategoria-btn">${kategoria.nev}
+                </button>
             </c:forEach>
             </div>
 

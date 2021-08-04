@@ -32,6 +32,10 @@ public class UjKiadasController {
         List<Kategoria> allKategoriak = kategoriaService.getAllKiadasSzulo();
         List<Szamla> allSzamlak = szamlaService.getAll();
 
+        for (Kategoria kategoria : allKategoriak) {
+            System.out.println(kategoria.getIsSzulo());
+        }
+
         model.addAttribute("kategoriak", allKategoriak);
         model.addAttribute("szamlak", allSzamlak);
 

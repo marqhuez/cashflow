@@ -13,6 +13,7 @@ public class Kategoria {
     private String nev;
     private String tipus;
     private Integer szuloKategoriaId;
+    private Boolean isSzulo;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Bevetel> bevetel = new HashSet<>();
@@ -20,9 +21,12 @@ public class Kategoria {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "kategoria")
     private Set<Kiadas> kiadas = new HashSet<>();
 
-    public Kategoria(Long id, String nev) {
+    public Kategoria(Long id, String nev, String tipus, Integer szuloKategoriaId, Boolean isSzulo) {
         this.id = id;
         this.nev = nev;
+        this.tipus = tipus;
+        this.szuloKategoriaId = szuloKategoriaId;
+        this.isSzulo = isSzulo;
     }
 
     public Kategoria() {}
@@ -57,5 +61,13 @@ public class Kategoria {
 
     public void setTipus(String tipus) {
         this.tipus = tipus;
+    }
+
+    public Boolean getIsSzulo() {
+        return isSzulo;
+    }
+
+    public void setIsSzulo(Boolean szulo) {
+        isSzulo = szulo;
     }
 }

@@ -4,6 +4,11 @@
 
 <div class="row">
     <h3 class="col-12 text-center my-4">Új bevétel felvitele</h3>
+
+    <div class="col-2">
+        <button class="btn btn-sm btn-warning" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> Vissza</button>
+    </div>
+
     <div class="d-flex justify-content-center">
         <form action="" method="post">
             <label for="osszeg">Összeg</label>
